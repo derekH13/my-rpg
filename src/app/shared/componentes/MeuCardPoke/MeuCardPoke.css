@@ -1,0 +1,35 @@
+.meuPoke{
+    position: absolute;
+    margin-top: -20rem;
+    display: flex;
+    justify-content: center;
+}
+
+.alinhar-flex-meu{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 500px;
+    width: 98%;
+}
+
+.img-poke-meu{
+    max-height: 230px;
+    min-height: 200px;
+    max-width: 230px;
+    transform: translateX(5rem);
+    margin-top: 7rem;
+}
+
+.info-poke-meu{
+    background: rgba(30, 255, 0, 0.192);
+    box-shadow: 0 0px 32px 15px rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 5px );
+    -webkit-backdrop-filter: blur( 5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 330px;
+    height: 115px;
+    border-radius: 15px;
+    margin-top: 12rem;
+}

@@ -15,8 +15,12 @@
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 330px;
-    height: 100px;
+    height: 115px;
     border-radius: 15px;
+}
+
+.name{
+    text-transform: uppercase;
 }
 
 .flex1{
@@ -34,13 +38,15 @@ color: #0f0f0f;
 }
 
 .img-poke{
-    height: 300px;
-    transform: translateX(-3rem);
-    margin-top: 3rem;
+    max-height: 140px;
+    min-height: 110px;
+    max-width: 200px;
+    transform: translateX(-7.5rem);
+    margin-top: 12rem;
 }
 
 .container-vida{
-    transform: translateY(1.5rem);
+    transform: translateY(.5rem);
     margin: 0 auto;
     border-radius: 12px;
     width: 95%;
@@ -52,6 +58,7 @@ color: #0f0f0f;
     display: flex;
     justify-content: left;
     align-items: center;
+    box-shadow: -3px 5px 0px 0px rgba(0, 0, 0, 0.966);
 }
 
 .container-vida h1{
@@ -62,15 +69,88 @@ font-weight: 900;
 right: 5px;
 }
 
-
-@keyframes ataque {
-    0%, 100%{
-        transform: translateX(-3rem);
-        margin-top: 1rem;
-    }
-
-    50%{
-        transform: translateX(-19rem);
-        margin-top: 9rem;
-    }
+.tipo{
+    height: 25px;
+    padding: 0px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f0f0f;
+    border-radius: 10px;
+    box-shadow: -3px 5px 0px 0px rgba(0, 0, 0, 0.966);
+    margin-left: .5rem;
 }
+
+/*  tipos */
+
+.fire{
+    background-color: #ffb006d0;
+}
+
+.normal{
+    background-color: rgb(127, 127, 127);
+}
+
+.psychic{
+    background-color: rgb(190, 129, 210);
+}
+
+.bug{
+    background-color: #92B34B;
+}
+
+.dragon{
+    background-color: #1D69B2;
+}
+
+.electric{
+    background-color: #E8D340;
+}
+
+.fairy{
+    background-color: #C695CC;
+}
+
+.fighting{
+    background-color: #9C3F61;
+}
+
+.flying{
+    background-color: #96A7DD;
+}
+
+.ghost{
+    background-color: #5A658F;
+}
+
+.grass{
+    background-color: #67B567;
+}
+
+.water{
+    background-color: #027AA9;
+}
+
+.steel{
+    background-color: #4e4e4e;
+}
+
+.dark{
+    background-color: #630bd4c0;
+}
+
+.ice{
+    background-color: #67b5af;
+}
+
+.ground{
+    background-color: #7a7540;
+}
+
+.rock{
+    background-color: #4b4a39;
+}
+
+.poison{
+    background-color: #6420be;
+}
+

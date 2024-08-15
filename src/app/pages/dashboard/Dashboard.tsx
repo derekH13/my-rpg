@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Provider from '../../shared/contexts/Provider'
 
 import './Dashboard.css'
@@ -87,25 +87,25 @@ export const Dashboard = () => {
 
 
     //verificando o lugara
-    if((char.x == 12 && char.y == 7) || (char.x == 14 && char.y == 7) || (char.x == 13 && char.y == 8)){
+    if((char.x === 12 && char.y === 7) || (char.x === 14 && char.y === 7) || (char.x === 13 && char.y === 8)){
         lugar.current = 'elfa'
 
-    }else if((char.x == 8 && char.y == 8) || (char.x == 9 && char.y == 8) || (char.x == 10 && char.y == 8)){
+    }else if((char.x === 8 && char.y === 8) || (char.x === 9 && char.y === 8) || (char.x === 10 && char.y === 8)){
         lugar.current = 'tenda'
 
-    }else if((char.x == 12 && char.y == 18) || (char.x == 13 && char.y == 17) || (char.x == 13 && char.y == 19)){
+    }else if((char.x === 12 && char.y === 18) || (char.x === 13 && char.y === 17) || (char.x === 13 && char.y === 19)){
         lugar.current = 'criança'
 
-    }else if((char.x == 14 && char.y == 19) || (char.x == 15 && char.y == 18)){
+    }else if((char.x === 14 && char.y === 19) || (char.x === 15 && char.y === 18)){
         lugar.current = 'vovo'
 
-    }else if((char.x == 24 && char.y == 12) || (char.x == 25 && char.y == 12)){
+    }else if((char.x === 24 && char.y === 12) || (char.x === 25 && char.y === 12)){
         lugar.current = 'tarefas'
 
-    }else if((char.x == 25 && char.y == 14) || (char.x == 3 && char.y == 11)){
+    }else if((char.x === 25 && char.y === 14) || (char.x === 3 && char.y === 11) || (char.x === 25 && char.y === 13)){
         lugar.current = 'sair'
 
-    }else if((char.x == 16 && char.y == 16) || (char.x == 16 && char.y == 17) || (char.x == 13 && char.y == 16)){
+    }else if((char.x === 16 && char.y === 16) || (char.x === 16 && char.y === 17) || (char.x === 13 && char.y === 16)){
         lugar.current = 'estatua'
 
     }else{
