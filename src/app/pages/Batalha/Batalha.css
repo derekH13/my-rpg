@@ -7,7 +7,7 @@
     background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
-    animation: aparecer .3s;
+    animation: aparecer .5s;
 }
 
 .controle{

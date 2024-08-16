@@ -8,7 +8,7 @@
 }
 
 .container{
-    background-color: #24282F;
+    background-color: #0f0f0f;
     min-height: 100vh;
     color: white;
     width: 100%;
@@ -25,6 +25,7 @@
     background-position: left top;
     background-size: 100%;
     position: relative;
+    animation: aparecer ease .5s;
 }
 
 .comente{

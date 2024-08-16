@@ -34,6 +34,7 @@ export const Dashboard = () => {
     //adicionando event click assim que a pagina é carregada
     useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
+
     }, [])
 
 
@@ -133,6 +134,7 @@ if( dialogo.person !== ''){
         }
     })    
 }
+
 
 
 
