@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Provider from '../../shared/contexts/Provider'
+import Audio from '../../shared/componentes/Audio/Audio'
 
 import './Dashboard.css'
 import { Character } from '../../shared/componentes/Character/Character'
@@ -10,7 +11,8 @@ import { CharacterLugar } from '../../shared/types/LadoPerson'
 
 //============== hooks ===========
 import { useCharacter } from '../../shared/hooks/useCharacter'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import Dialogo from '../../shared/componentes/Dialogo/Dialogo'
 
 
 
@@ -24,6 +26,9 @@ export const Dashboard = () => {
 
     //usando useRef
     const lugar = useRef<CharacterLugar>('')
+    
+
+    const [dialogo, setDialogo] = useState({person: '', texto: ''})
 
 
     //adicionando event click assim que a pagina é carregada
@@ -35,6 +40,8 @@ export const Dashboard = () => {
     //sair da vila
     const direcionarParaFora = () => {
         navegar('/Batalha')
+
+        lugar.current = ''
     }
 
 
@@ -52,15 +59,18 @@ export const Dashboard = () => {
 
         //para sair
         if((e.code === 'Space') && (lugar.current === 'sair')){
+            console.log('ddd');
             direcionarParaFora()
         }
 
         if((e.code === 'Space') && (lugar.current === 'elfa')){
-            console.log('elfa')
+            setDialogo({person: 'Jasminy', texto: 'Você quer saber mais sobre Pokemons?! Em nosso mundo, os Pokémon são mais do que aliados de batalha; são guardiões do equilíbrio que mantemos com a natureza. Desde os tempos antigos, nosso povo, os Elfos de Fyorindor, sempre compreendeu as energias que fluem entre nós e essas criaturas magníficas. Nunca os capturamos à força; em vez disso, formamos laços de confiança e respeito. Quando um Pokémon escolhe lutar ao nosso lado, é porque nossos corações estão em sintonia com a essência deste mundo. Assim, protegemos nossas florestas, montanhas e o próprio equilíbrio que sustenta toda a vida.'})
+
         }
 
         if((e.code === 'Space') && (lugar.current === 'criança')){
-            console.log('criança')
+            setDialogo({person: 'criança', texto: 'Vovô, por que você sempre para diante dessa estátua? Ela parece um anjo, mas… não tem asas. Será que é um Pokémon? Ele tem uma expressão tão triste… O que ela fez de tão especial para merecer sua atenção?'})
+
         }
 
         if((e.code === 'Space') && (lugar.current === 'tarefas')){
@@ -72,12 +82,13 @@ export const Dashboard = () => {
         }
 
         if((e.code === 'Space') && (lugar.current === 'vovo')){
-            console.log('vovo')
+            setDialogo({person: 'vovo', texto: 'Não é um Pokémon, Liz. Esta é uma representação da chave para o modo como coexistimos com eles. Ela simboliza o equilíbrio que devemos manter, o respeito mútuo e a harmonia que sustenta nossa convivência com os Pokémon. Outras raças têm seus próprios modos de lidar com essas criaturas — algumas as veem como ferramentas de poder, enquanto outras as tratam como simples companheiros. Mas nós, minha querida, acreditamos que a verdadeira força vem da compreensão e do respeito, e é isso que nos mantém unidos, em paz, com os Pokémon e com a natureza.'})
         }
 
         if((e.code === 'Space') && (lugar.current === 'estatua')){
             console.log('estatua')
         }
+
 
     }
 
@@ -110,8 +121,18 @@ export const Dashboard = () => {
 
     }else{
         lugar.current = ''
-
+        
     }
+
+
+//fechar o dialogo caso click em alguma tecla
+if( dialogo.person !== ''){
+    window.addEventListener('keydown', (e) => {
+        if(e.code){
+            dialogo.person = ''
+        }
+    })    
+}
 
 
 
@@ -159,7 +180,14 @@ console.log(lugar);
             }
 
 
+            {/* mostar dialogo */}
 
+            {
+                dialogo.person !== ''? <Dialogo texto={dialogo.texto} person={dialogo.person} /> : ''
+            }
+
+            
+            <Audio />
             
 
                 </div>

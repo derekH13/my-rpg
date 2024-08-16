@@ -7,6 +7,7 @@ import './Batalha.css'
 import CardPokeBatalha from "../../shared/componentes/Card-Poke-Batalha/CardPokeBatalha";
 import { objetopoke } from "../../shared/data/data";
 import MeuCardPoke from "../../shared/componentes/MeuCardPoke/MeuCardPoke";
+import Audio from '../../shared/componentes/Audio/Audio'
 
 
 //type
@@ -23,14 +24,19 @@ let chave = 1
 
 
 export function Batalha(){
-    const [habilidade, sethabilidade] = useState<Habilidades>("")
+    const [animacaoI, setAnimacaoI] = useState<Habilidades>("")
     const [pokeInimigo, setPokeInimigo] = useState<dadosPoke>(objetopoke)
     const [pokeMeu, setPokeMeu] = useState<dadosPoke>(objetopoke)
+
+    //valor do atk acumulado
     const [meuatk, setMeuAtk] = useState(0)
+    const [InimigoAtk, setInimigoAtk] = useState(0)
 
      //essa é a porcentagem para controlara a animação da vida
     const [myLife, setMyLife] = useState(100)
     const [InimigoLife, setInimigoLife] = useState(100)
+
+    const animacao = useRef<Habilidades>('')
 
 
     const navegar = useNavigate()
@@ -59,6 +65,12 @@ export function Batalha(){
 
 //atacar / instancia o pokemon inimigo / logica de atack
     function ataque(){
+        //logica para dar tempo o pokemon oponente atacar e não ficar atacando sem parar
+        if(animacao.current != '') return
+
+        //animação de atacar
+        animacao.current = 'ataqueMeu'
+
         const MeuPoke = new Pokemon(pokeMeu)
         const pokeI = new Pokemon(pokeInimigo)
         console.log(pokeI.stats.hp);
@@ -70,15 +82,21 @@ export function Batalha(){
         //porcentagem de vida atual do inimigo
         setInimigoLife( InimigoLife - valorAtacar.tirou)
 
-        //animação de atacar
-        sethabilidade("ataqueMeu")
-       
 
-
-
+        
+        //logica de animação de atacar tanto do meu poke e de oponente
         setTimeout(() => {
-            sethabilidade("")
-       }, 3000)
+            setAnimacaoI("ataqueInimigo")
+
+            const valorAtacarI = pokeI.atacar(MeuPoke.stats.hp, MeuPoke.Mdef())
+            setInimigoAtk( InimigoAtk + valorAtacarI.meuatk)
+
+            //porcentagem da minha vida
+            setMyLife( myLife - valorAtacarI.tirou)
+            
+            animacao.current = ''
+       }, 2000)
+       setAnimacaoI("")
     }
 
 
@@ -94,10 +112,11 @@ export function Batalha(){
     return(
         <div className="container">
             <div className="map-combate">
+            <Audio />
 
-                    <CardPokeBatalha acao={''} data={pokeInimigo} hp={InimigoLife} dano={meuatk}/>
+                    <CardPokeBatalha acao={animacaoI} data={pokeInimigo} hp={InimigoLife} dano={meuatk}/>
 
-                    <MeuCardPoke acao={habilidade} data={pokeMeu} hp={myLife} />
+                    <MeuCardPoke acao={animacao.current} data={pokeMeu} hp={myLife} dano={InimigoAtk}/>
 
                 <div className="controle">
 
@@ -136,6 +155,7 @@ export function Batalha(){
                     </span>
                 </button>
 
+                
 
 
                 </div>

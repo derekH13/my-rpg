@@ -7,10 +7,11 @@ interface PropsDados {
     acao: Habilidades;
     data: dadosPoke;
     hp: number;
+    dano: number;
 }
 
 
-function MeuCardPoke( {acao, data, hp}: PropsDados){
+function MeuCardPoke( {acao, data, hp, dano}: PropsDados){
     return(
         <div className="alinhar-flex-meu meuPoke">
         <div className="info-poke-meu">
@@ -26,7 +27,7 @@ function MeuCardPoke( {acao, data, hp}: PropsDados){
                 
             </div>
 
-            <div className="container-vida"> <h1>{data.stats.hp}</h1>  <C.Vida vida={hp} /></div>
+            <div className="container-vida"> <h1>{data.stats.hp - dano}</h1>  <C.Vida vida={hp} /></div>
         </div>
 
 
