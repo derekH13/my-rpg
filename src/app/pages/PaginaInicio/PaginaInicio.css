@@ -22,6 +22,7 @@
 .title-pokerpg img{
 height: 200px;
 padding: 20px;
+width: 90%;
 
 }
 
@@ -76,6 +77,28 @@ transition: all ease .4s;
     margin-bottom: 5rem;
 }
 
+
 .conteudo-p{
     margin-top: 130vh;
+}
+
+
+
+
+
+@media (max-width: 1000px) {
+    .title-projeto{
+        background-color: #DC383E;
+        transform: translateY(70rem);
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+        width: 70%;
+        margin: 0 auto;
+        border-radius: 60px;
+        text-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+        margin-bottom: 5rem;
+    }
+
+
 }

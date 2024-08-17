@@ -149,7 +149,10 @@ console.log(lugar);
     return(
         <Provider>
             <div className='container'>
+            <h1 className="mostrar-mobille">Infelizmente esse jogo foi feito apenas para computador!</h1>
                 <div className="map">
+
+                 
 
                 <Character  x={char.x} y={char.y} side={char.side} />
 

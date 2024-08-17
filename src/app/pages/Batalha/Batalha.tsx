@@ -111,6 +111,7 @@ export function Batalha(){
 
     return(
         <div className="container">
+             <h1 className="mostrar-mobille">Infelizmente esse jogo foi feito apenas para computador!</h1>
             <div className="map-combate">
             <Audio />
 

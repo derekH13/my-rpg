@@ -206,3 +206,20 @@
       margin-top: -9rem;
   }
 }
+
+
+
+
+@media (max-width: 1000px) {
+  .map-combate{
+      display: none;
+  }
+
+  .mostrar-mobille{
+      display: flex;
+      width: 100%;
+      text-align: center;
+  }
+
+
+}

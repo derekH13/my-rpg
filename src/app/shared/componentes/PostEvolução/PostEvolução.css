@@ -1,6 +1,7 @@
 .imagem-post{
-    width: 50%;
-    min-width: 450px;
+    max-width: 50%;
+    max-height: 500px;
+    aspect-ratio: 3/3;
 }
 
 .title-post{
@@ -17,4 +18,15 @@
     font-weight: 300;
     padding-top: 2rem;
     line-height: 190%;
+    flex: 1;
+   
+}
+
+@media (max-width: 1000px) {
+   .container-post{
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+   }
+
 }

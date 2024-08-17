@@ -12,7 +12,7 @@ type Props = {
 
 function PostEvolução( {img, title, conteudo, flex}: Props ){
     return(
-        <C.ContainerPost flex={flex}>
+        <C.ContainerPost className="container-post" flex={flex}>
             <img className="imagem-post" src={img} alt="" />
 
             <div>
